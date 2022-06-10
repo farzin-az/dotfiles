@@ -111,8 +111,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mplayer="ncmpcpp"
+alias muse="ncmpcpp"
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' 
+alias unmount="udisksctl unmount -b"
+alias in='task add +in'
+
+# implementing tickler file system in taskwarrior
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
 
 # custom functions
 se() {du -a ~/Code/* ~/.config/* ~/vimwiki | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
@@ -128,3 +138,4 @@ source /home/farzin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # keybindings
 bindkey -v
 source /home/farzin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
