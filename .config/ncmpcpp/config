@@ -381,7 +381,7 @@ visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = alternative
 #
 #data_fetching_delay = yes
 #
