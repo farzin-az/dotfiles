@@ -48,6 +48,7 @@ Plug 'tricktux/pomodoro.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'vim-pandoc/vim-pandoc'
+"
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'junegunn/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -57,6 +58,8 @@ Plug 'airblade/vim-rooter'
 Plug 'yever/rtl.vim'
 Plug 'azabiong/vim-highlighter'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Plugin settings:
