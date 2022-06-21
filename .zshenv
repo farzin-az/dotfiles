@@ -1,6 +1,13 @@
 # environment variables
- export EDITOR=nvim
- export FZF_BASE=/usr/bin/fzf
+export EDITOR="vim"
+export READER="zathura"
+export TERMINAL="kitty"
+export BROWSER="qutebrowser"
+export VIDEO="mpv"
+export PAGER="less"
+export WM="awesome"
+export FZF_BASE="/usr/bin/fzf"
+export NNN_FIFO="/tmp/nnn.fifo"
 
 # lf icons
 export LF_ICONS="\
