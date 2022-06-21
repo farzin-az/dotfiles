@@ -1,0 +1,3 @@
+.dotfiles
+.config/mpd/database
+.config/ncmpcpp/error.log
