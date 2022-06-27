@@ -122,12 +122,12 @@ theme.cal = lain.widget.cal({
 })
 
 -- Taskwarrior
-local task = wibox.widget.imagebox(theme.widget_task)
-lain.widget.contrib.task.attach(task, {
-    -- do not colorize output
-    show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
-})
-task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
+-- local task = wibox.widget.imagebox(theme.widget_task)
+-- lain.widget.contrib.task.attach(task, {
+--     -- do not colorize output
+--     show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
+-- })
+-- task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
 
 -- Scissors (xsel copy and paste)
 -- local scissors = wibox.widget.imagebox(theme.widget_scissors)
@@ -179,38 +179,38 @@ theme.volume = lain.widget.alsa({
 })
 
 -- MPD
-local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
-local mpdicon = wibox.widget.imagebox(theme.widget_music)
-mpdicon:buttons(my_table.join(
-    awful.button({ modkey }, 1, function () awful.spawn.with_shell(musicplr) end),
-    awful.button({ }, 1, function ()
-        os.execute("mpc prev")
-        theme.mpd.update()
-    end),
-    awful.button({ }, 2, function ()
-        os.execute("mpc toggle")
-        theme.mpd.update()
-    end),
-    awful.button({ }, 3, function ()
-        os.execute("mpc next")
-        theme.mpd.update()
-    end)))
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        if mpd_now.state == "play" then
-            artist = " " .. mpd_now.artist .. " "
-            title  = mpd_now.title  .. " "
-            mpdicon:set_image(theme.widget_music_on)
-            widget:set_markup(markup.font(theme.font, markup("#FF8466", artist) .. " " .. title))
-        elseif mpd_now.state == "pause" then
-            widget:set_markup(markup.font(theme.font, " mpd paused "))
-            mpdicon:set_image(theme.widget_music_pause)
-        else
-            widget:set_text("")
-            mpdicon:set_image(theme.widget_music)
-        end
-    end
-})
+-- local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+-- local mpdicon = wibox.widget.imagebox(theme.widget_music)
+-- mpdicon:buttons(my_table.join(
+--     awful.button({ modkey }, 1, function () awful.spawn.with_shell(musicplr) end),
+--     awful.button({ }, 1, function ()
+--         os.execute("mpc prev")
+--         theme.mpd.update()
+--     end),
+--     awful.button({ }, 2, function ()
+--         os.execute("mpc toggle")
+--         theme.mpd.update()
+--     end),
+--     awful.button({ }, 3, function ()
+--         os.execute("mpc next")
+--         theme.mpd.update()
+--     end)))
+-- theme.mpd = lain.widget.mpd({
+--     settings = function()
+--         if mpd_now.state == "play" then
+--             artist = " " .. mpd_now.artist .. " "
+--             title  = mpd_now.title  .. " "
+--             mpdicon:set_image(theme.widget_music_on)
+--             widget:set_markup(markup.font(theme.font, markup("#FF8466", artist) .. " " .. title))
+--         elseif mpd_now.state == "pause" then
+--             widget:set_markup(markup.font(theme.font, " mpd paused "))
+--             mpdicon:set_image(theme.widget_music_pause)
+--         else
+--             widget:set_text("")
+--             mpdicon:set_image(theme.widget_music)
+--         end
+--     end
+-- })
 
 -- MEM
 local memicon = wibox.widget.imagebox(theme.widget_mem)
@@ -390,11 +390,11 @@ function theme.at_screen_connect(s)
 
             arrow(theme.bg_normal, "#CB755B"),
             wibox.container.background(wibox.container.margin(wibox.widget { keylayout, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)), "#CB755B"),
-            arrow("#CB755B", "#4B3B51"),
-            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(6)), "#4B3B51"),
-            arrow("#4B3B51", "#C0C0A2"),
-            wibox.container.background(wibox.container.margin(task, dpi(3), dpi(7)), "#C0C0A2"),
-            arrow("#C0C0A2", "#777E76"),
+            -- arrow("#CB755B", "#4B3B51"),
+            -- wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(6)), "#4B3B51"),
+            -- arrow("#4B3B51", "#C0C0A2"),
+            -- wibox.container.background(wibox.container.margin(task, dpi(3), dpi(7)), "#C0C0A2"),
+            arrow("#CB755B", "#777E76"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#777E76"),
             arrow("#777E76", "#4B696D"),
             wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(4)), "#4B696D"),
