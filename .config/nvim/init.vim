@@ -1,5 +1,8 @@
+" cSpell:disable
+
 "imports
 source /home/farzin/.config/nvim/image-paste.vim "to paste images from clipboard into neovim
+
 " Basic settings
 set encoding=utf-8
 set number
@@ -8,31 +11,20 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set autoindent
-set mouse=a
 set smarttab
 set shiftwidth=4
+set mouse=a
 set ignorecase
 set termbidi
+set clipboard+=unnamedplus "making neovim to use the system clipboard
 syntax enable
 filetype plugin on
-
-" Additional core neovim settings:
-"
-set clipboard+=unnamedplus "making the neovim to use the system clipboard
-
-" There is a bug in running neovim with alacritty that prevents neovim from
-" taking the full width of terminal. The following hack is used to prevent
-" this bug. If for any reason this stops working, consider uncommenting the
-" following line.
-
-" autocmd VimEnter * :sleep 20m
-autocmd VimEnter * silent exec "!kill -s SIGWINCH" getpid()
-
+colorscheme PaperColor
 
 "plugins
 call plug#begin()
 Plug 'akinsho/toggleterm.nvim'
-Plug 'Mofiqul/dracula.nvim'
+" Plug 'Mofiqul/dracula.nvim'
 Plug 'lambdalisue/suda.vim' 
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
@@ -44,11 +36,9 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'tricktux/pomodoro.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'vim-pandoc/vim-pandoc'
-"
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'junegunn/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -63,7 +53,7 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Plugin settings:
-"
+
 " Vimwiki settings
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:mkdp_browser = 'surf'
@@ -72,14 +62,12 @@ au filetype vimwiki silent! iunmap <buffer> <Tab>
 
 " Airline settings
 let g:airline_powerline_fonts = 1 "to show the powerline fonts correctly in the airline. Appropriate powerline fonts need to be installed beforehand. I use MesloLGS NF font.
-let g:airline_theme = "base16_ashes"
+let g:airline_theme = "atomic"
 let g:airline#extensions#tabline#enabled = 1
 
 " coc.nvim settings
 "making tab the auto-completion key for coc.nvim
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : '<Tab>'
-
-colorscheme dracula
 
 " vim-pandoc settings
 " augroup pandoc_syntax
@@ -88,11 +76,7 @@ colorscheme dracula
 augroup pandoc_syntax
    autocmd! FileType vimwiki set syntax=markdown.pandoc
 augroup END
-augroup
-" pomodoro.vim settings
-let g:pomodoro_notification_cmd = "mpg123 -q /home/farzin/.vim/explosion-03.mp3"
- let g:pomodoro_notification_cmd = 'notify-send ="Pomodoro finished'    
-let g:pomodoro_do_log = 1 
+"
 " autosave settings
 lua << EOF
 local autosave = require("autosave")
@@ -137,47 +121,11 @@ endfunc
 " Keybindings
 nnoremap <C-t> :NERDTreeToggle<CR>   
 nnoremap <C-w> :call WriteTitle()<CR>   
-nnoremap <C-l> :call WriteAndLoad()<CR>   
+" nnoremap <C-l> :call WriteAndLoad()<CR>   
 nnoremap <C-d> :call GetJalaliDate()<CR>
 nnoremap <C-f> :Telescope find_files<CR>
-nnoremap <C-k> :MarkdownPreview<CR>
+nnoremap <C-l> :nohls<CR>
 " nnoremap <C-m> :set keymap=persian<CR>
-nnoremap <C-e> :bd<CR>
+nnoremap <C-x> :bd<CR>
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
-
-
-" default key mappings
-" let HiSet   = 'f<CR>'
-" let HiErase = 'f<BS>'
-" let HiClear = 'f<C-L>'
-" let HiFind  = 'f<Tab>'
-
-" " find key mappings
-" nn -        <Cmd>Hi/next<CR>
-" nn _        <Cmd>Hi/previous<CR>
-" nn f<Left>  <Cmd>Hi/older<CR>
-" nn f<Right> <Cmd>Hi/newer<CR>
-
-" " unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀   '
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" " airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
