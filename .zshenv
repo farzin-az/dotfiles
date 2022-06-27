@@ -8,6 +8,8 @@ export PAGER="less"
 export WM="awesome"
 export FZF_BASE="/usr/bin/fzf"
 export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="o:fzopen;p:preview-tui"
+export NNN_BMS="c:~/.config;e:/run/media"
 
 # lf icons
 export LF_ICONS="\
