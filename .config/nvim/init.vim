@@ -19,7 +19,6 @@ set termbidi
 set clipboard+=unnamedplus "making neovim to use the system clipboard
 syntax enable
 filetype plugin on
-colorscheme PaperColor
 
 "plugins
 call plug#begin()
@@ -51,6 +50,8 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+colorscheme PaperColor
 
 " Plugin settings:
 
