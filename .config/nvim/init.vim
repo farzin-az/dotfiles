@@ -1,7 +1,7 @@
 " cSpell:disable
 
 "imports
-source /home/farzin/.config/nvim/image-paste.vim "to paste images from clipboard into neovim
+source $HOME/.config/nvim/image-paste.vim "to paste images from clipboard into neovim
 
 " Basic settings
 set encoding=utf-8

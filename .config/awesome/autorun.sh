@@ -12,4 +12,4 @@ run picom --experimental-backends
 run tor
 run clipit
 run element-desktop --hidden
-python /home/farzin/Code/scripts/feh.py
+python $HOME/Code/scripts/feh.py

@@ -7,7 +7,7 @@
 #   /__/   /__/ /______/ /________/ /________/ /__________/   
 
 #  "
-# kitty +kitten icat --align left /home/farzin/.config/neofetch/arcolinux-arc.png
+# kitty +kitten icat --align left $HOME/.config/neofetch/arcolinux-arc.png
 # neofetch
 # colorscript --exec faces
 # If you come from bash you might have to change your $PATH.
@@ -122,19 +122,19 @@ alias tick=tickle
 
 # custom functions
 se() {du -a ~/Code/* ~/.config/* ~/vimwiki | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-hs() {cat /home/farzin/.zsh_history | awk -F':' {'print $3'} | sed 's/^0;//' | fzf | zsh;}
+hs() {cat $HOME/.zsh_history | awk -F':' {'print $3'} | sed 's/^0;//' | fzf | zsh;}
 
 #environment variables
 # export EDITOR=nvim
 # export FZF_BASE=/usr/bin/fzf
 
 #plugins
-source /home/farzin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # keybindings
 bindkey -v
-source /home/farzin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/farzin/aliases.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/aliases.zsh
 
 # cd on quit implementation for nnn
 n ()
